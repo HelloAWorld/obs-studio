@@ -57,6 +57,8 @@ set(CMAKE_INCLUDE_CURRENT_DIR TRUE)
 set(CMAKE_AUTOMOC TRUE)
 
 find_package(Qt5Svg ${FIND_MODE})
+find_package(Qt5WebEngineWidgets ${FIND_MODE})
+find_package(Qt5WebView ${FIND_MODE})
 
 find_package(FFmpeg REQUIRED COMPONENTS avcodec avutil avformat)
 
@@ -213,6 +215,7 @@ set(obs_SOURCES
 	window-basic-filters.cpp
 	window-basic-settings.cpp
 	window-basic-interaction.cpp
+	window-basic-login.cpp
 	window-basic-properties.cpp
 	window-basic-auto-config.cpp
 	window-basic-main-outputs.cpp
@@ -234,6 +237,8 @@ set(obs_SOURCES
 	window-log-reply.cpp
 	window-projector.cpp
 	window-remux.cpp
+	window-basic-courselist.cpp
+	window-basic-webview.cpp
 	auth-base.cpp
 	source-tree.cpp
 	scene-tree.cpp
@@ -260,7 +265,8 @@ set(obs_SOURCES
 	source-label.cpp
 	remote-text.cpp
 	audio-encoders.cpp
-	qt-wrappers.cpp)
+	qt-wrappers.cpp
+	CCurlHttpClient.cpp)
 
 set(obs_HEADERS
 	${obs_PLATFORM_HEADERS}
@@ -275,6 +281,7 @@ set(obs_HEADERS
 	window-basic-filters.hpp
 	window-basic-settings.hpp
 	window-basic-interaction.hpp
+	window-basic-login.hpp
 	window-basic-properties.hpp
 	window-basic-auto-config.hpp
 	window-basic-main-outputs.hpp
@@ -288,6 +295,8 @@ set(obs_HEADERS
 	window-log-reply.hpp
 	window-projector.hpp
 	window-remux.hpp
+	window-basic-courselist.h
+	window-basic-webview.h
 	auth-base.hpp
 	source-tree.hpp
 	scene-tree.hpp
@@ -322,7 +331,8 @@ set(obs_HEADERS
 	remote-text.hpp
 	audio-encoders.hpp
 	qt-wrappers.hpp
-	clickable-label.hpp)
+	clickable-label.hpp
+	CCurlHttpClient.h)
 
 set(obs_UI
 	forms/NameDialog.ui
@@ -341,7 +351,11 @@ set(obs_UI
 	forms/OBSExtraBrowsers.ui
 	forms/OBSUpdate.ui
 	forms/OBSRemux.ui
-	forms/OBSAbout.ui)
+	forms/OBSAbout.ui
+	forms/OBSBasicLogin.ui
+	forms/OBSBasicCourseList.ui
+	forms/OBSBasicWebView.ui
+	)
 
 set(obs_QRC
 	forms/obs.qrc)
@@ -372,6 +386,8 @@ target_link_libraries(obs
 	libobs
 	Qt5::Widgets
 	Qt5::Svg
+	Qt5::WebEngineWidgets
+	Qt5::WebView
 	obs-frontend-api
 	${FFMPEG_LIBRARIES}
 	${LIBCURL_LIBRARIES}

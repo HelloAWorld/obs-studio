@@ -50,6 +50,7 @@ class OBSBasicStats;
 
 #include "ui_OBSBasic.h"
 #include "ui_ColorSelect.h"
+#include "window-basic-courselist.h"
 
 #define DESKTOP_AUDIO_1 Str("DesktopAudioDevice1")
 #define DESKTOP_AUDIO_2 Str("DesktopAudioDevice2")
@@ -175,6 +176,8 @@ class OBSBasic : public OBSMainWindow {
 
 private:
 	obs_frontend_callbacks *api = nullptr;
+
+	QPointer<OBSBasicCourseList> courselistWindow;
 
 	std::shared_ptr<Auth> auth;
 

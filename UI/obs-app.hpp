@@ -31,7 +31,7 @@
 #include <memory>
 #include <vector>
 #include <deque>
-
+#include "window-basic-login.hpp"
 #include "window-main.hpp"
 
 std::string CurrentTimeString();
@@ -74,6 +74,7 @@ private:
 	TextLookup textLookup;
 	OBSContext obsContext;
 	QPointer<OBSMainWindow> mainWindow;
+	QPointer<OBSBasicLogin> loginWindow;
 	profiler_name_store_t *profilerNameStore = nullptr;
 
 	os_inhibit_t *sleepInhibitor = nullptr;

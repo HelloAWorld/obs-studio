@@ -37,6 +37,7 @@
 
 #include "qt-wrappers.hpp"
 #include "obs-app.hpp"
+#include "window-basic-login.hpp"
 #include "window-basic-main.hpp"
 #include "window-basic-settings.hpp"
 #include "crash-report.hpp"
@@ -1355,6 +1356,9 @@ bool OBSApp::OBSInit()
 	setQuitOnLastWindowClosed(false);
 
 	mainWindow = new OBSBasic();
+	loginWindow = new OBSBasicLogin(mainWindow);
+	loginWindow->OBSInit();
+	loginWindow->show();
 
 	mainWindow->setAttribute(Qt::WA_DeleteOnClose, true);
 	connect(mainWindow, SIGNAL(destroyed()), this, SLOT(quit()));
