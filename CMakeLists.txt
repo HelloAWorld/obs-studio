@@ -185,6 +185,9 @@ if(NOT INSTALLER_RUN)
 		endif()
 
 		find_package(Qt5Widgets ${FIND_MODE})
+		find_package(Qt5Svg ${FIND_MODE})
+		find_package(Qt5WebEngineWidgets ${FIND_MODE})
+		find_package(Qt5WebView ${FIND_MODE})
 	endif()
 
 	add_subdirectory(deps)
