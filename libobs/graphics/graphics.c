@@ -179,6 +179,8 @@ int gs_create(graphics_t **pgraphics, const char *module, uint32_t adapter)
 	pthread_mutex_init_value(&graphics->mutex);
 	pthread_mutex_init_value(&graphics->effect_mutex);
 
+	//OutputDebugString(module);
+
 	graphics->module = os_dlopen(module);
 	if (!graphics->module) {
 		errcode = GS_ERROR_MODULE_NOT_FOUND;

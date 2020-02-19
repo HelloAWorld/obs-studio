@@ -1695,16 +1695,37 @@ void OBSBasic::OBSInit()
 
 #ifdef _WIN32
 	SetWin32DropStyle(this);
-	show();
 
 	courselistWindow = new OBSBasicCourseList(this);
-	courselistWindow->show();
+
+	webviewWindow = new OBSBasicWebView(this);
 
 	QDesktopWidget *desktop = QApplication::desktop();
-	int xpos = (desktop->width() - this->width()) / 3;
-	courselistWindow->move(xpos,  0);
-	xpos = (int)(desktop->width() - this->width()) / 3 + courselistWindow->width();
-	this->move(xpos, 0);
+
+	int width = desktop->width() / 2;
+	this->resize(width, this->height());
+
+	width = desktop->width() / 10;
+	courselistWindow->resize(width, courselistWindow->height());
+
+	width = desktop->width() * 3 / 10;
+	webviewWindow->resize(width, webviewWindow->height());
+
+	int xpos = (desktop->width() / 20);
+	int ypos = (desktop->height() - this->height()) / 2;
+
+	courselistWindow->move(xpos, ypos);
+	courselistWindow->OBSInit();
+	courselistWindow->show();
+
+	xpos = xpos + courselistWindow->width();
+	this->move(xpos, ypos);
+	show();
+
+	xpos = xpos + this->width();
+	webviewWindow->move(xpos, ypos);
+	webviewWindow->OBSInit();
+	webviewWindow->show();
 #endif
 
 	bool alwaysOnTop = config_get_bool(App()->GlobalConfig(), "BasicWindow",

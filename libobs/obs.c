@@ -1158,7 +1158,7 @@ int obs_reset_video(struct obs_video_info *ovi)
 	const char *yuv_format = get_video_colorspace_name(ovi->colorspace);
 	const char *yuv_range =
 		get_video_range_name(ovi->output_format, ovi->range);
-
+	
 	blog(LOG_INFO, "---------------------------------");
 	blog(LOG_INFO,
 	     "video settings reset:\n"

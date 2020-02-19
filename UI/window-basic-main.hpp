@@ -51,6 +51,7 @@ class OBSBasicStats;
 #include "ui_OBSBasic.h"
 #include "ui_ColorSelect.h"
 #include "window-basic-courselist.h"
+#include "window-basic-webview.h"
 
 #define DESKTOP_AUDIO_1 Str("DesktopAudioDevice1")
 #define DESKTOP_AUDIO_2 Str("DesktopAudioDevice2")
@@ -178,6 +179,7 @@ private:
 	obs_frontend_callbacks *api = nullptr;
 
 	QPointer<OBSBasicCourseList> courselistWindow;
+	QPointer<OBSBasicWebView> webviewWindow;
 
 	std::shared_ptr<Auth> auth;
 

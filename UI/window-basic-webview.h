@@ -16,7 +16,9 @@ public:
     OBSBasicWebView(QWidget *parent = nullptr);
     ~OBSBasicWebView();
 
-private:
+    void OBSInit();
+
+   private:
     Ui::OBSBasicWebView *ui;
     QWebEngineView * m_webview;
 };

@@ -57,6 +57,7 @@
 #include <iostream>
 
 #include "ui-config.h"
+#include<QtWebView/QtWebView>
 
 using namespace std;
 
@@ -1099,7 +1100,8 @@ bool OBSApp::InitTheme()
 
 OBSApp::OBSApp(int &argc, char **argv, profiler_name_store_t *store)
 	: QApplication(argc, argv), profilerNameStore(store)
-{
+ {
+	QtWebView::initialize();
 	sleepInhibitor = os_inhibit_sleep_create("OBS Video/audio");
 
 	setWindowIcon(QIcon::fromTheme("obs", QIcon(":/res/images/obs.png")));
@@ -1363,7 +1365,7 @@ bool OBSApp::OBSInit()
 	mainWindow->setAttribute(Qt::WA_DeleteOnClose, true);
 	connect(mainWindow, SIGNAL(destroyed()), this, SLOT(quit()));
 
-	mainWindow->OBSInit();
+	//mainWindow->OBSInit();
 
 	connect(this, &QGuiApplication::applicationStateChanged,
 		[this](Qt::ApplicationState state) {
@@ -1769,11 +1771,11 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 	InstallNSApplicationSubclass();
 #endif
 
-	OBSApp program(argc, argv, profilerNameStore.get());
+ 	OBSApp program(argc, argv, profilerNameStore.get());
 	try {
 		bool created_log = false;
 
-		program.AppInit();
+ 		program.AppInit();
 		delete_oldest_file(false, "obs-studio/profiler_data");
 
 		OBSTranslator translator;

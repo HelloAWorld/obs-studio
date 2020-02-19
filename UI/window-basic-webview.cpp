@@ -3,19 +3,20 @@
 #include <QUrl>>
 
 OBSBasicWebView::OBSBasicWebView(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::OBSBasicWebView)
+	: QMainWindow(parent), ui(new Ui::OBSBasicWebView)
 {
-    ui->setupUi(this);
-
-    m_webview = new QWebEngineView(this);
-    m_webview->load(QUrl("http://www.baidu.com"));
-    m_webview->resize(this->width(), this->height());
-    m_webview->showMaximized();
+	ui->setupUi(this);
 }
 
 OBSBasicWebView::~OBSBasicWebView()
 {
-    delete ui;
+	delete ui;
 }
 
+void OBSBasicWebView::OBSInit()
+{
+	m_webview = new QWebEngineView(this);
+	m_webview->load(QUrl("http://www.baidu.com"));
+	m_webview->resize(this->width(), this->height());
+	m_webview->showMaximized();
+}
