@@ -57,7 +57,7 @@
 #include <iostream>
 
 #include "ui-config.h"
-#include<QtWebView/QtWebView>
+//#include<QtWebView/QtWebView>
 
 using namespace std;
 
@@ -1101,7 +1101,7 @@ bool OBSApp::InitTheme()
 OBSApp::OBSApp(int &argc, char **argv, profiler_name_store_t *store)
 	: QApplication(argc, argv), profilerNameStore(store)
  {
-	QtWebView::initialize();
+	//QtWebView::initialize();
 	sleepInhibitor = os_inhibit_sleep_create("OBS Video/audio");
 
 	setWindowIcon(QIcon::fromTheme("obs", QIcon(":/res/images/obs.png")));

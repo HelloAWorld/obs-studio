@@ -1,0 +1,390 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "3.exe"
+		},
+		{
+			"path" : "3.pdb"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 40,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 49,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1  "
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 2,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_NETWORK_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_POSITIONING_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_PRINTSUPPORT_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_QMLMODELS_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_QML_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_QUICK_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WEBCHANNEL_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WEBENGINECORE_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WEBENGINEWIDGETS_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WEBENGINE_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WEBVIEW_LIB"
+				},
+				{
+					"backtrace" : 2,
+					"define" : "QT_WIDGETS_LIB"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"path" : "D:/code/work/obs-studio/obs-studio/UI/build-3-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug"
+				},
+				{
+					"path" : "D:/code/work/obs-studio/obs-studio______1/UI/3"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "D:/code/work/obs-studio/obs-studio/UI/build-3-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug/3_autogen/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtWidgets"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtGui"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtANGLE"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtCore"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/./mkspecs/win32-msvc"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtWebEngine"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtWebEngineCore"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtQuick"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtQmlModels"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtQml"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtNetwork"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtWebChannel"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtPositioning"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtWebEngineWidgets"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtPrintSupport"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "D:/Qt/Qt5.14.1/5.14.1/msvc2017/include/QtWebView"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "3_autogen::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "3::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "/machine:X86 /debug /INCREMENTAL /subsystem:console",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5WebEngined.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5WebEngineWidgetsd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5WebViewd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5WebEngineCored.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5WebChanneld.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Positioningd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Quickd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5QmlModelsd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Qmld.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5PrintSupportd.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Widgetsd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Networkd.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Guid.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "D:\\Qt\\Qt5.14.1\\5.14.1\\msvc2017\\lib\\Qt5Cored.lib",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "3",
+	"nameOnDisk" : "3.exe",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				3
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				4,
+				5
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				6
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "D:/code/work/obs-studio/obs-studio/UI/build-3-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug/3_autogen/mocs_compilation.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "main.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "window-basic-webview.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "window-basic-webview.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "OBSBasicWebView.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "3_zh_CN.ts",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "3_zh_CN.ts.rule",
+			"sourceGroupIndex" : 3
+		}
+	],
+	"type" : "EXECUTABLE"
+}

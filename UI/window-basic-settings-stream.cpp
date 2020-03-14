@@ -141,6 +141,21 @@ void OBSBasicSettings::LoadStream1Settings()
 	loading = false;
 }
 
+void OBSBasicSettings::SetSettingStreaming(const std::string &strUrl,
+					   const std::string &strCode)
+{
+	char szText[32] = {0};
+	this->ui->service->setCurrentIndex(0);
+	ui->customServer->setText(strUrl.c_str());
+
+	ui->key->setText(strCode.c_str());
+	stream1Changed = true;
+
+	this->SaveSettings();
+	this->ClearChanged();
+	this->close();
+}
+
 void OBSBasicSettings::SaveStream1Settings()
 {
 	bool customServer = IsCustomService();
@@ -160,7 +175,7 @@ void OBSBasicSettings::SaveStream1Settings()
 			settings, "server",
 			QT_TO_UTF8(ui->server->currentData().toString()));
 	} else {
-		obs_data_set_string(settings, "server",
+  		obs_data_set_string(settings, "server",
 				    QT_TO_UTF8(ui->customServer->text()));
 		obs_data_set_bool(settings, "use_auth",
 				  ui->useAuth->isChecked());
@@ -205,6 +220,8 @@ void OBSBasicSettings::SaveStream1Settings()
 	if (!!main->auth)
 		main->auth->LoadUI();
 }
+
+void OBSBasicSettings::SaveStream1Settings(bool customServer) {}
 
 void OBSBasicSettings::UpdateKeyLink()
 {

@@ -3469,7 +3469,7 @@ void OBSBasicSettings::SaveSettings()
 		SaveStream1Settings();
 	if (outputsChanged)
 		SaveOutputSettings();
-	if (audioChanged)
+ 	if (audioChanged)
 		SaveAudioSettings();
 	if (videoChanged)
 		SaveVideoSettings();

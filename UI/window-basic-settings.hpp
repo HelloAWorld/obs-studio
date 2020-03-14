@@ -99,6 +99,10 @@ class OBSBasicSettings : public QDialog {
 	Q_PROPERTY(QIcon advancedIcon READ GetAdvancedIcon WRITE SetAdvancedIcon
 			   DESIGNABLE true)
 
+public:
+	void SetSettingStreaming(const std::string &strUrl,
+				 const std::string &strCode);
+
 private:
 	OBSBasic *main;
 
@@ -277,7 +281,7 @@ private:
 	void SaveHotkeySettings();
 	void SaveAdvancedSettings();
 	void SaveSettings();
-
+	void SaveStream1Settings(bool customServer);
 	void UpdateSimpleOutStreamDelayEstimate();
 	void UpdateAdvOutStreamDelayEstimate();
 

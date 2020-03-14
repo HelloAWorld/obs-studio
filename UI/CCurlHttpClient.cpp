@@ -42,6 +42,9 @@ int CCurlHttpClient::Post(const std::string &strUrl, const std::string &strPost,
 		curl_easy_setopt(curl, CURLOPT_VERBOSE, 1);
 		curl_easy_setopt(curl, CURLOPT_DEBUGFUNCTION, OnDebug);
 	}
+	struct curl_slist *headers = NULL;
+	headers = curl_slist_append(headers, "content-type:application/json");
+	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 	curl_easy_setopt(curl, CURLOPT_URL, strUrl.c_str());
 	curl_easy_setopt(curl, CURLOPT_POST, 1);
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, strPost.c_str());

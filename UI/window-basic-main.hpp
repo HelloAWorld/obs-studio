@@ -51,7 +51,8 @@ class OBSBasicStats;
 #include "ui_OBSBasic.h"
 #include "ui_ColorSelect.h"
 #include "window-basic-courselist.h"
-#include "window-basic-webview.h"
+//#include "window-basic-webview.h"
+#include "window-basic-chartroom.h"
 
 #define DESKTOP_AUDIO_1 Str("DesktopAudioDevice1")
 #define DESKTOP_AUDIO_2 Str("DesktopAudioDevice2")
@@ -179,7 +180,8 @@ private:
 	obs_frontend_callbacks *api = nullptr;
 
 	QPointer<OBSBasicCourseList> courselistWindow;
-	QPointer<OBSBasicWebView> webviewWindow;
+	//QPointer<OBSBasicWebView> webviewWindow;
+	QPointer<OBSBasicChartRoom> chartroomWindow;
 
 	std::shared_ptr<Auth> auth;
 
@@ -193,6 +195,7 @@ private:
 	long disableSaving = 1;
 	bool projectChanged = false;
 	bool previewEnabled = true;
+	bool bhidingsettingwhilerunit = false;
 
 	std::list<const char *> copyStrings;
 	const char *copyFiltersString = nullptr;
@@ -707,7 +710,8 @@ public:
 	OBSScene GetCurrentScene();
 
 	void SysTrayNotify(const QString &text, QSystemTrayIcon::MessageIcon n);
-
+	void SetSettingStreaming(const std::string &strUrl,
+				 const std::string &strCode);
 	inline OBSSource GetCurrentSceneSource()
 	{
 		OBSScene curScene = GetCurrentScene();
@@ -982,8 +986,16 @@ public:
 
 	static void InitBrowserPanelSafeBlock();
 
-private:
+	void SetUseInfo(const std::string &account,
+			const std::string &strToken,
+			int userId,
+			int userType);
+ private:
 	std::unique_ptr<Ui::OBSBasic> ui;
+	std::string m_account;
+	std::string m_strToken;
+	int m_usertype;
+	int m_userId;
 };
 
 class SceneRenameDelegate : public QStyledItemDelegate {

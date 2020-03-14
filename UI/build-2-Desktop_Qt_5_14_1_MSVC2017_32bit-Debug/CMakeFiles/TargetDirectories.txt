@@ -1,0 +1,4 @@
+D:/code/work/obs-studio/obs-studio/UI/build-2-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/code/work/obs-studio/obs-studio/UI/build-2-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug/CMakeFiles/2.dir
+D:/code/work/obs-studio/obs-studio/UI/build-2-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug/CMakeFiles/edit_cache.dir
+D:/code/work/obs-studio/obs-studio/UI/build-2-Desktop_Qt_5_14_1_MSVC2017_32bit-Debug/CMakeFiles/2_autogen.dir

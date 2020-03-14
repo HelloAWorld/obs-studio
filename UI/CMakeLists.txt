@@ -78,6 +78,7 @@ endif()
 
 include_directories(${FFMPEG_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
+include_directories(SYSTEM "${CMAKE_SOURCE_DIR}/dependencies2017/win32/bin")
 include_directories(SYSTEM "obs-frontend-api")
 include_directories(SYSTEM "${CMAKE_SOURCE_DIR}/libobs")
 include_directories(SYSTEM "${CMAKE_SOURCE_DIR}/deps/libff")
@@ -238,7 +239,8 @@ set(obs_SOURCES
 	window-projector.cpp
 	window-remux.cpp
 	window-basic-courselist.cpp
-	window-basic-webview.cpp
+	#window-basic-webview.cpp
+	window-basic-chartroom.cpp
 	auth-base.cpp
 	source-tree.cpp
 	scene-tree.cpp
@@ -266,7 +268,9 @@ set(obs_SOURCES
 	remote-text.cpp
 	audio-encoders.cpp
 	qt-wrappers.cpp
-	CCurlHttpClient.cpp)
+	CCurlHttpClient.cpp
+	comm_fuction.cpp
+	CMyConfig.cpp)
 
 set(obs_HEADERS
 	${obs_PLATFORM_HEADERS}
@@ -296,7 +300,8 @@ set(obs_HEADERS
 	window-projector.hpp
 	window-remux.hpp
 	window-basic-courselist.h
-	window-basic-webview.h
+	#window-basic-webview.h
+	window-basic-chartroom.h
 	auth-base.hpp
 	source-tree.hpp
 	scene-tree.hpp
@@ -332,7 +337,9 @@ set(obs_HEADERS
 	audio-encoders.hpp
 	qt-wrappers.hpp
 	clickable-label.hpp
-	CCurlHttpClient.h)
+	CCurlHttpClient.h
+	comm_fuction.h
+	CMyConfig.h)
 
 set(obs_UI
 	forms/NameDialog.ui
@@ -354,7 +361,8 @@ set(obs_UI
 	forms/OBSAbout.ui
 	forms/OBSBasicLogin.ui
 	forms/OBSBasicCourseList.ui
-	forms/OBSBasicWebView.ui
+	#forms/OBSBasicWebView.ui
+	forms/OBSBasicChartRoom.ui
 	)
 
 set(obs_QRC
@@ -389,6 +397,8 @@ target_link_libraries(obs
 	Qt5::WebEngineWidgets
 	Qt5::WebView
 	obs-frontend-api
+	${CMAKE_SOURCE_DIR}/dependencies2017/win32/bin/libcrypto.lib
+	#openssl
 	${FFMPEG_LIBRARIES}
 	${LIBCURL_LIBRARIES}
 	${obs_PLATFORM_LIBRARIES})

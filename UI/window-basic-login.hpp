@@ -23,9 +23,13 @@ private slots:
 
 private:
 	int Login(const std::string &strUserName,
-		  const std::string &strPassword);
+		  const std::string &strPassword, std::string &strOutErrorMsg);
 
 private:
 	Ui::OBSBasicLogin *ui;
+	std::string strToken;
+	std::string account;
+	int userId;
+	int usertype;
 };
 #endif // OBSBASICLOGIN_H
