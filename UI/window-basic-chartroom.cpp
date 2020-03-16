@@ -1,5 +1,6 @@
 #include "window-basic-chartroom.h"
 #include "./ui_obsbasicchartroom.h"
+#include "windows.h"
 
 OBSBasicChartRoom::OBSBasicChartRoom(QWidget *parent)
 	: QMainWindow(parent),
@@ -27,6 +28,14 @@ void OBSBasicChartRoom::SetUseInfo(const std::string &account,
 	m_usertype = userType;
 }
 
-int OBSBasicChartRoom::InitLoadMessage() {
+DWORD WINAPI ThreadFunc(LPVOID lpVoid)
+{
+
+	return 0;
+}
+
+int OBSBasicChartRoom::InitLoadMessage()
+{
+	CreateThread(NULL, 0, ThreadFunc, this, 0, 0);
 	return 0;
 }

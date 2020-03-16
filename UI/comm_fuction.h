@@ -11,5 +11,6 @@ std::string WStringToString(const std::wstring &wstr);
 void sha_crypt(const char *szInput, int ilen, unsigned char *szOutput);
 void getdatefromtime(time_t t, char * outtime/*YYYY-MM-DD*/);
 int DOWNLOAD_FILE(const char *url, const char outfilename[FILENAME_MAX]);
+void GetModuleFileDir(std::string &strFileDir);
 
 #endif

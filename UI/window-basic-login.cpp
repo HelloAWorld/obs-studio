@@ -11,6 +11,7 @@
 #include "mbedtls/sha1.h"
 #include "comm_fuction.h"
 #include "openssl/sha.h"
+#include "CMyConfig.h"
 
 OBSBasicLogin::OBSBasicLogin(QWidget *parent)
 	: QMainWindow(parent), ui(new Ui::OBSBasicLogin)
@@ -90,7 +91,10 @@ void OBSBasicLogin::on_m_btnsignin_clicked() {
 int OBSBasicLogin::Login(const std::string& strUserName, const std::string & strPassword,std::string & strOutErrorMsg)
 {
 	CCurlHttpClient client;
-	std::string strUrl = "http://47.115.139.190:9001/live/api/teacher/login";
+
+	//"http://47.115.139.190:9001/live/api/teacher/login";
+	std::string strUrl = CMyConfig::Instance()->GetLoginUrl();
+	
 	std::string strPost;
 	std::string response;
 	unsigned char szsha1pwd[1024]={0};
@@ -129,7 +133,7 @@ int OBSBasicLogin::Login(const std::string& strUserName, const std::string & str
 	}
 	else
 	{
-		//strOutErrorMsg = jsResult["message"].string_value();
+		strOutErrorMsg = jsResult["message"].string_value();
 	}
 	return ret;
 }

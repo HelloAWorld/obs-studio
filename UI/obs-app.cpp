@@ -42,6 +42,7 @@
 #include "window-basic-settings.hpp"
 #include "crash-report.hpp"
 #include "platform.hpp"
+#include "CMyConfig.h"
 
 #include <fstream>
 
@@ -1100,7 +1101,7 @@ bool OBSApp::InitTheme()
 
 OBSApp::OBSApp(int &argc, char **argv, profiler_name_store_t *store)
 	: QApplication(argc, argv), profilerNameStore(store)
- {
+{
 	//QtWebView::initialize();
 	sleepInhibitor = os_inhibit_sleep_create("OBS Video/audio");
 
@@ -1356,6 +1357,8 @@ bool OBSApp::OBSInit()
 	blog(LOG_INFO, "Portable mode: %s", portable_mode ? "true" : "false");
 
 	setQuitOnLastWindowClosed(false);
+
+	CMyConfig::Instance()->LoadConfig();
 
 	mainWindow = new OBSBasic();
 	loginWindow = new OBSBasicLogin(mainWindow);
@@ -1771,11 +1774,11 @@ static int run_program(fstream &logFile, int argc, char *argv[])
 	InstallNSApplicationSubclass();
 #endif
 
- 	OBSApp program(argc, argv, profilerNameStore.get());
+	OBSApp program(argc, argv, profilerNameStore.get());
 	try {
 		bool created_log = false;
 
- 		program.AppInit();
+		program.AppInit();
 		delete_oldest_file(false, "obs-studio/profiler_data");
 
 		OBSTranslator translator;
@@ -2451,7 +2454,7 @@ int main(int argc, char *argv[])
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	int ret = run_program(logFile, argc, argv);
-
+	curl_global_cleanup();
 	blog(LOG_INFO, "Number of memory leaks: %ld", bnum_allocs());
 	base_set_log_handler(nullptr, nullptr);
 	return ret;

@@ -1728,7 +1728,9 @@ void OBSBasic::OBSInit()
 
 	courselistWindow->move(xpos, ypos);
 	courselistWindow->SetUseInfo(m_account, m_strToken, m_userId, m_usertype);
+
 	courselistWindow->OBSInit();
+	
 	courselistWindow->show();
 
 	xpos = xpos + courselistWindow->width();
@@ -1739,6 +1741,7 @@ void OBSBasic::OBSInit()
 	chartroomWindow->move(xpos, ypos);
 	chartroomWindow->SetUseInfo(m_account, m_strToken, m_userId,
 				     m_usertype);
+	chartroomWindow->InitLoadMessage();
 	//webviewWindow->OBSInit();
 	chartroomWindow->show();
 #endif
@@ -4040,11 +4043,13 @@ void OBSBasic::SetSettingStreaming(const std::string &strUrl,
 	OBSBasicSettings settings(this);
 	settings.show();
 	settings.hide();
+	
 	settings.SetSettingStreaming(strUrl, strCode);
 
 	SystemTray(false);
 
 	settings_already_executing = false;
+	settings.close();
 }
 
 void OBSBasic::on_action_Settings_triggered()
@@ -5140,7 +5145,7 @@ void OBSBasic::StartStreaming()
 {
 	if (outputHandler->StreamingActive())
 		return;
-	if (disableOutputsRef)
+ 	if (disableOutputsRef)
 		return;
 
 	if (api)

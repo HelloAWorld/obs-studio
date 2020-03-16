@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <qstandarditemmodel.h>
 #include <qscrollbar.h>
+#include "json11.hpp"
+
 #pragma execution_character_set("utf-8")
 
 QT_BEGIN_NAMESPACE
@@ -35,10 +37,12 @@ private:
 	Ui::OBSBasicCourseList *ui;
 	QScrollBar *m_vscrollBar;
 	QStandardItemModel *m_slm;
+	QStandardItem *m_selectedItem;
 	std::string m_account;
 	std::string m_strToken;
 	int m_usertype;
 	int m_userId;
 	int m_current;
+	std::map<QStandardItem *, json11::Json> m_mapResult;
 };
 #endif // OBSBASICCOURSELIST_H

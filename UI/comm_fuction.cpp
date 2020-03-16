@@ -5,6 +5,8 @@
 #include "time.h"
 #include "curl/curl.h"
 #include <io.h>
+#include "qmessagebox.h"
+#include "qstring.h"
 
 char *U8ToUnicode(const char *szU8)
 {
@@ -148,25 +150,31 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
 int DOWNLOAD_FILE(const char *url, const char outfilename[FILENAME_MAX])
 {
 	CURL *curl;
-	FILE *fp;
+	FILE *fp = NULL;
 	CURLcode res;
-
+	
 	if (0 == access(outfilename, 0))
 	{
 		return 0;
 	}
-	/*   调用curl_global_init()初始化libcurl  */
+	
+	/*   调用curl_global_init()初始化libcurl  
 	res = curl_global_init(CURL_GLOBAL_ALL);
 	if (CURLE_OK != res) {
 		printf("init libcurl failed.");
 		curl_global_cleanup();
 		return -1;
-	}
+	}*/
 	/*  调用curl_easy_init()函数得到 easy interface型指针  */
 	curl = curl_easy_init();
 	if (curl) {
 
 		fopen_s(&fp, outfilename, "wb");
+		if (fp == NULL)
+		{
+			curl_easy_cleanup(curl);
+			return -1;
+		}
 
 		/*  调用curl_easy_setopt()设置传输选项 */
 		res = curl_easy_setopt(curl, CURLOPT_URL, url);
@@ -189,10 +197,11 @@ int DOWNLOAD_FILE(const char *url, const char outfilename[FILENAME_MAX])
 			curl_easy_cleanup(curl);
 			return -1;
 		}
-
+		
 		res = curl_easy_perform(
 			curl); // 调用curl_easy_perform()函数完成传输任务
 		fclose(fp);
+		
 		/* Check for errors */
 		if (res != CURLE_OK) {
 			fprintf(stderr, "curl_easy_perform() failed: %s\n",
@@ -200,10 +209,19 @@ int DOWNLOAD_FILE(const char *url, const char outfilename[FILENAME_MAX])
 			curl_easy_cleanup(curl);
 			return -1;
 		}
-
+		
 		/* always cleanup */
 		curl_easy_cleanup(curl); // 调用curl_easy_cleanup()释放内存
 	}
-	curl_global_cleanup();
+	
 	return 0;
+}
+
+void GetModuleFileDir(std::string &strFileDir)
+{
+	char szModuleFilePath[MAX_PATH + 1] = {0};
+	GetModuleFileNameA(NULL, szModuleFilePath, MAX_PATH);
+	strFileDir = szModuleFilePath;
+	int pos = strFileDir.find_last_of("\\");
+	strFileDir = strFileDir.substr(0, pos + 1);
 }
